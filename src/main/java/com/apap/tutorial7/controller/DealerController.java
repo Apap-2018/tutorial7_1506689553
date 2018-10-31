@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.apap.tutorial7.model.DealerModel;
-import com.apap.tutorial7.service.CarService;
 import com.apap.tutorial7.service.DealerService;
 import org.springframework.web.client.RestTemplate;
 

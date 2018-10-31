@@ -30,11 +30,6 @@ public class CarServiceImpl implements CarService{
 	}
 
 	@Override
-	public List<CarModel> sortByPriceDesc(Long dealer_id) {
-		return carDb.findByDealerIdOrderByPriceDesc(dealer_id);
-	}
-
-	@Override
 	public void deleteCar(CarModel car) {
 		carDb.delete(car);
 		
@@ -43,17 +38,6 @@ public class CarServiceImpl implements CarService{
 	@Override
 	public CarModel getCar(long id) {
 		return carDb.findById(id).get();
-	}
-
-	@Override
-	public void updateCar(Long id, String brand, String type, Long price, Integer amount) {
-		// TODO Auto-generated method stub
-		CarModel updateCar = carDb.getOne(id);
-		updateCar.setAmount(amount);
-		updateCar.setBrand(brand);
-		updateCar.setPrice(price);
-		updateCar.setType(type);
-		carDb.save(updateCar);
 	}
 
 }

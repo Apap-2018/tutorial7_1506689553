@@ -47,8 +47,8 @@ public class CarController {
 		return carService.getAllCar();
 	}
 
-	@GetMapping(value = "/{carId}")
-	private CarModel viewCar(@PathVariable("carId") long carId, Model model) {
+	@GetMapping(value = "/view")
+	private CarModel viewCar(@RequestParam(value = "carId") long carId, Model model) {
 		System.out.println("cari car "+carId);
 		return carService.getCar(carId);
 	}
@@ -77,8 +77,8 @@ public class CarController {
 		return "Car has been updated";
 	}
 
-	@DeleteMapping(value = "/{carId}")
-	private String deleteCar(@PathVariable("carId") long carId, Model model){
+	@DeleteMapping(value = "/delete")
+	private String deleteCar(@RequestParam(value = "carId") long carId, Model model){
 		CarModel car = carService.getCar(carId);
 		carService.deleteCar(car);
 		return "Car has been deleted";
