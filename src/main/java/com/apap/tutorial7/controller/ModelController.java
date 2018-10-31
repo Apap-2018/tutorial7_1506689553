@@ -2,10 +2,7 @@ package com.apap.tutorial7.controller;
 
 import com.apap.tutorial7.rest.Setting;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,7 +23,7 @@ public class ModelController {
         headers.add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
         HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
         String path = Setting.carQueryAPI + "/?&cmd=getModels&year=2018&make=" + factory;
-        Object response = restTemplate.exchange(path, HttpMethod.GET,entity,Object.class);
+        ResponseEntity<String> response = restTemplate.exchange(path, HttpMethod.GET,entity,String.class);
         return response;
     }
 }

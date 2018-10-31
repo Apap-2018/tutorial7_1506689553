@@ -21,7 +21,6 @@ public class CarServiceImpl implements CarService{
 	@Override
 	public CarModel addCar(CarModel car) {
 		return carDb.save(car);
-		
 	}
 
 	@Override
@@ -32,7 +31,6 @@ public class CarServiceImpl implements CarService{
 	@Override
 	public void deleteCar(CarModel car) {
 		carDb.delete(car);
-		
 	}
 
 	@Override
