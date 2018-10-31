@@ -25,40 +25,11 @@ public class CarController {
 	@Autowired
 	private DealerService dealerService;
 
-//	@Autowired
-//	RestTemplate restTemplate;
-//
-//	@Bean
-//	public RestTemplate rest() {
-//
-//		return new RestTemplate();
-//	}
 
 	@PostMapping(value = "/add")
 	private CarModel addCarSubmit(@RequestBody CarModel car){
 		return carService.addCar(car);
 	}
-
-//	@GetMapping(value = "/add")
-//	private CarModel addCarSubmit(
-//			@RequestParam(value = "brand",required = false) String brand,
-//			@RequestParam(value = "type",required = false) String type,
-//			@RequestParam(value = "price",required = false) Long price,
-//			@RequestParam(value = "amount",required = false) Integer amount,
-//			@RequestParam(value = "dealerId",required = false) Long dealerId) {
-//
-//		CarModel car = new CarModel();
-//		System.out.println(dealerId);
-//		System.out.println(amount);
-//		System.out.println(brand);
-//		DealerModel dealer = dealerService.getDealerDetailById(dealerId).get();
-//		car.setBrand(brand);
-//		car.setType(type);
-//		car.setPrice(price);
-//		car.setAmount(amount);
-//		car.setDealer(dealer);
-//		return carService.addCar(car);
-//	}
 
 	//coba pake id dealer
 	@PostMapping(value = "/{dealerId}")
