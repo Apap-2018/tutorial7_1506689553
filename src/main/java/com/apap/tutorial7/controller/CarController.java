@@ -61,25 +61,17 @@ public class CarController {
 			@RequestParam(value = "price",required = false) Long price,
 			@RequestParam(value = "amount",required = false) Integer amount,
 			@RequestParam(value = "dealerId",required = false) long dealerId){
-		CarModel car= (CarModel) carService.getCar(carId);
+		CarModel car = carService.getCar(carId);
+		if (car.equals(null)){
+			return "Cannot find a car";
+		}
+		car.setBrand(brand);
+		car.setType(type);
+		car.setPrice(price);
+		car.setAmount(amount);
 
-		if (brand != null){
-			car.setBrand(brand);
-		}
-		if (type != null){
-			car.setType(type);
-		}
-		if (price != null){
-			car.setPrice(price);
-		}
-		if (amount != null){
-			car.setAmount(amount);
-		}
 		if (String.valueOf(dealerId ) != null ){
 			car.setDealer(dealerService.getDealerDetailById(dealerId).get());
-		}
-		if (car.equals(null)){
-			return "Car not found 404";
 		}
 		carService.addCar(car);
 		return "Car has been updated";
